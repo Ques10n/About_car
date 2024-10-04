@@ -1,0 +1,51 @@
+body {
+    background-color: #121212; /* Темный фон страницы */
+    color: #e0e0e0; /* Светлый цвет текста */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #ffffff; /* Цвет текста заголовка */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для заголовка */
+}
+
+ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0;
+    max-width: 600px; /* Максимальная ширина списка */
+}
+
+li {
+    background-color: #1e1e1e; /* Темный фон элемента списка */
+    padding: 15px; /* Увеличенный внутренний отступ */
+    margin: 10px 0;
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Более заметная тень */
+    transition: transform 0.2s; /* Плавный переход для эффекта наведения */
+}
+
+li:hover {
+    transform: translateY(-2px); /* Подъем элемента при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Увеличенная тень при наведении */
+}
+
+strong {
+    color: #f0f0f0; /* Цвет выделенного текста */
+    font-size: 1.3em; /* Увеличенный размер шрифта */
+}
+
+br {
+    content: ''; /* Убираем верхние и нижние отступы между линиями */
+    margin: 0;
+}
+
+.description {
+    font-size: 0.9em; /* Уменьшенный размер шрифта описания */
+    color: #b0b0b0; /* Светло-серый цвет текста описания */
+}

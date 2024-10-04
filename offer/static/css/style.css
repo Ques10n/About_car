@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center; /* Центрируем текст для навигации */
+}
+
+nav ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+    display: flex; /* Используем Flexbox для расположения кнопок горизонтально */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+}
+
+nav li {
+    margin: 0 15px; /* Отступы между кнопками */
+}
+
+nav a {
+    color: white; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 5px 15px; /* Внутренние отступы для кнопок */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+}
+
+nav a:hover {
+    background-color: #555; /* Цвет фона при наведении */
+    border-radius: 5px; /* Скругление углов фона при наведении */
+}
+
+footer {
+    text-align: center; /* Центрируем текст в футере */
+    padding: 10px 0;
+}

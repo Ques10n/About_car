@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Добро пожаловать{% endblock %}</title>
+    <link type="text/css" href="{% static 'aboutcars/css/styles.css' %}" rel="stylesheet" />
+    <style>
+        nav ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding: 0; /* Убираем внутренние отступы */
+            margin: 0; /* Убираем внешние отступы */
+            display: flex; /* Используем Flexbox для горизонтального расположения */
+        }
+
+        nav ul li {
+            margin-right: 20px; /* Отступ между кнопками */
+        }
+
+        nav ul li a {
+            text-decoration: none; /* Убираем подчеркивание ссылок */
+            color: #e0e0e0; /* Цвет текста ссылок */
+        }
+        .logout-button {
+            background-color: rgba(28,28,28,0); /* Цвет фона кнопки */
+            color: #e0e0e0; /* Цвет текста кнопки */
+            border: none; /* Убираем рамку */
+            cursor: pointer; /* Указываем, что это кнопка */
+            border-radius: 5px; /* Скругление углов кнопки */
+            transition: background-color 0.3s; /* Плавный переход для фона */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'car_list' %}">Автомобили</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'add_car' %}">Добавить статью</a></li>
+                <li><form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-button">{{user.username}} | Выйти</button>
+                </form></li>
+                {% if user == car.owner %}
+                <li><a  href="{% url 'update' car.id %}">Редактировать запись</a></li>
+                {%endif%}
+                {% else %}
+                <li><a href="{% url 'register' %}">Регистрация</a></li>
+                <li><a href="{% url 'login' %}">Войти</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

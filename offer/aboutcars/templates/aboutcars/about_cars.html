@@ -1,0 +1,25 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+{% load static %}
+<strong>{{ car.make }} {{ car.model }}</strong><br>
+Год выпуска: {{ car.year|default:"" }}<br>
+Описание: {{ car.description|default:"Нет описания" }}<br>
+
+<h3>Комментарии</h3>
+<ul>
+    {% for comment in comments %}
+        <li><strong>{{ comment.username }}</strong>: {{ comment.content }} ({{ comment.created_at|date:"Y-m-d H:i" }})</li>
+    {% empty %}
+        <li>Нет комментариев.</li>
+    {% endfor %}
+</ul>
+{% if user.is_authenticated %}
+<h3>Добавить комментарий</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+{% endif %}
+{% endblock %}

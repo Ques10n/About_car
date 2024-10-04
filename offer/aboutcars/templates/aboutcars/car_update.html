@@ -1,0 +1,16 @@
+{% extends 'templates/base.html' %}
+
+
+{% block content %}
+{% if user == car.owner %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Редактировать</button> </p>
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="delete">Delete</button>
+    </form>
+{% endif %}
+{% endblock %}
